@@ -1,0 +1,1 @@
+java -classpath ".;pib2ipms.jar;lib\*" id.co.toyota.ipm.pib.Base  

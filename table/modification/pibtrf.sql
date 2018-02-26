@@ -1,0 +1,27 @@
+alter table TB_T_RES_PIBTRF add TRPPPH       NUMBER(18,2);
+alter table TB_T_RES_PIBTRF add   KDTRPBMAD    VARCHAR2(1);
+alter table TB_T_RES_PIBTRF add   TRPBMAD      NUMBER(18,2);
+alter table TB_T_RES_PIBTRF add   KDTRPBMTP    VARCHAR2(1);
+alter table TB_T_RES_PIBTRF add   TRPBMTP      NUMBER(18,2);
+alter table TB_T_RES_PIBTRF add   KDTRPBMIM    VARCHAR2(1);
+alter table TB_T_RES_PIBTRF add   TRPBMIM      NUMBER(18,2);
+alter table TB_T_RES_PIBTRF add   KDTRPBMPB    VARCHAR2(1);
+alter table TB_T_RES_PIBTRF add   TRPBMPB      NUMBER(18,2);
+alter table TB_T_RES_PIBTRF add   KDCUKSUB     VARCHAR2(3);
+alter table TB_T_RES_PIBTRF add   HJECUK       NUMBER(18,2);
+alter table TB_T_RES_PIBTRF add   KDKMSCUK     VARCHAR2(2);
+alter table TB_T_RES_PIBTRF add   ISIPERKMSCUK NUMBER(18,2);
+
+alter table TB_R_RES_PIBTRF add TRPPPH       NUMBER(18,2);
+alter table TB_R_RES_PIBTRF add   KDTRPBMAD    VARCHAR2(1);
+alter table TB_R_RES_PIBTRF add   TRPBMAD      NUMBER(18,2);
+alter table TB_R_RES_PIBTRF add   KDTRPBMTP    VARCHAR2(1);
+alter table TB_R_RES_PIBTRF add   TRPBMTP      NUMBER(18,2);
+alter table TB_R_RES_PIBTRF add   KDTRPBMIM    VARCHAR2(1);
+alter table TB_R_RES_PIBTRF add   TRPBMIM      NUMBER(18,2);
+alter table TB_R_RES_PIBTRF add   KDTRPBMPB    VARCHAR2(1);
+alter table TB_R_RES_PIBTRF add   TRPBMPB      NUMBER(18,2);
+alter table TB_R_RES_PIBTRF add   KDCUKSUB     VARCHAR2(3);
+alter table TB_R_RES_PIBTRF add   HJECUK       NUMBER(18,2);
+alter table TB_R_RES_PIBTRF add   KDKMSCUK     VARCHAR2(2);
+alter table TB_R_RES_PIBTRF add   ISIPERKMSCUK NUMBER(18,2);

@@ -1,0 +1,735 @@
+{
+   "sourceConnection":{
+      "driver":"net.ucanaccess.jdbc.UcanaccessDriver",
+      "url":"jdbc:ucanaccess://C:/Work/TMMIN/IPMS/PIB/workspaces/dbPIB.mdb;memory=false;jackcessOpener=CryptCodecOpener",
+      "user":"sa",
+      "password":"MumtazFarisHana"
+   },
+   "destinationConnection":{
+      "driver":"oracle.jdbc.driver.OracleDriver",
+      "url":"jdbc:oracle:thin:@localhost:1521:orcl",
+      "user":"ip0user00",
+      "password":"IP0USER00"
+   },
+   "import":[
+      
+      {
+         "name":"PIB Header",
+         "active": false,
+         "source":{
+            "table":"tblPibHdr",
+            "query":"select a.* from tblPibHdr a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBHDR"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "KdKpbc", "destinationColumn": "KDKPBC"},
+			{"sourceColumn": "PibNo", "destinationColumn": "PIBNO"},
+			{"sourceColumn": "PibTg", "destinationColumn": "PIBTG"},
+			{"sourceColumn": "JnPib", "destinationColumn": "JNPIB"},
+			{"sourceColumn": "JnImp", "destinationColumn": "JNIMP"},
+			{"sourceColumn": "JkWaktu", "destinationColumn": "JKWAKTU"},
+			{"sourceColumn": "CrByr", "destinationColumn": "CRBYR"},
+			{"sourceColumn": "DokTupKd", "destinationColumn": "DOKTUPKD"},
+			{"sourceColumn": "DokTupNo", "destinationColumn": "DOKTUPNO"},
+			{"sourceColumn": "DokTupTg", "destinationColumn": "DOKTUPTG"},
+			{"sourceColumn": "PosNo", "destinationColumn": "POSNO"},
+			{"sourceColumn": "PosSub", "destinationColumn": "POSSUB"},
+			{"sourceColumn": "PosSubSub", "destinationColumn": "POSSUBSUB"},
+			{"sourceColumn": "ImpId", "destinationColumn": "IMPID"},
+			{"sourceColumn": "ImpNpwp", "destinationColumn": "IMPNPWP"},
+			{"sourceColumn": "ImpNama", "destinationColumn": "IMPNAMA"},
+			{"sourceColumn": "ImpAlmt", "destinationColumn": "IMPALMT"},
+			{"sourceColumn": "ImpStatus", "destinationColumn": "IMPSTATUS"},
+			{"sourceColumn": "ApiKd", "destinationColumn": "APIKD"},
+			{"sourceColumn": "ApiNo", "destinationColumn": "APINO"},
+			{"sourceColumn": "PpjkId", "destinationColumn": "PPJKID"},
+			{"sourceColumn": "PpjkNpwp", "destinationColumn": "PPJKNPWP"},
+			{"sourceColumn": "PpjkNama", "destinationColumn": "PPJKNAMA"},
+			{"sourceColumn": "PpjkAlmt", "destinationColumn": "PPJKALMT"},
+			{"sourceColumn": "PpjkNo", "destinationColumn": "PPJKNO"},
+			{"sourceColumn": "PpjkTg", "destinationColumn": "PPJKTG"},
+			{"sourceColumn": "IndId", "destinationColumn": "INDID"},
+			{"sourceColumn": "IndNpwp", "destinationColumn": "INDNPWP"},
+			{"sourceColumn": "IndNama", "destinationColumn": "INDNAMA"},
+			{"sourceColumn": "IndAlmt", "destinationColumn": "INDALMT"},
+			{"sourceColumn": "PasokNama", "destinationColumn": "PASOKNAMA"},
+			{"sourceColumn": "PasokAlmt", "destinationColumn": "PASOKALMT"},
+			{"sourceColumn": "PasokNeg", "destinationColumn": "PASOKNEG"},
+			{"sourceColumn": "PelBkr", "destinationColumn": "PELBKR"},
+			{"sourceColumn": "PelMuat", "destinationColumn": "PELMUAT"},
+			{"sourceColumn": "PelTransit", "destinationColumn": "PELTRANSIT"},
+			{"sourceColumn": "TmpTbn", "destinationColumn": "TMPTBN"},
+			{"sourceColumn": "Moda", "destinationColumn": "MODA"},
+			{"sourceColumn": "AngkutNama", "destinationColumn": "ANGKUTNAMA"},
+			{"sourceColumn": "AngkutNo", "destinationColumn": "ANGKUTNO"},
+			{"sourceColumn": "AngkutFl", "destinationColumn": "ANGKUTFL"},
+			{"sourceColumn": "TgTiba", "destinationColumn": "TGTIBA"},
+			{"sourceColumn": "KdVal", "destinationColumn": "KDVAL"},
+			{"sourceColumn": "Ndpbm", "destinationColumn": "NDPBM"},
+			{"sourceColumn": "NilInv", "destinationColumn": "NILINV"},
+			{"sourceColumn": "Freight", "destinationColumn": "FREIGHT"},
+			{"sourceColumn": "BTambahan", "destinationColumn": "BTAMBAHAN"},
+			{"sourceColumn": "Diskon", "destinationColumn": "DISKON"},
+			{"sourceColumn": "KdAss", "destinationColumn": "KDASS"},
+			{"sourceColumn": "Asuransi", "destinationColumn": "ASURANSI"},
+			{"sourceColumn": "KdHrg", "destinationColumn": "KDHRG"},
+			{"sourceColumn": "Fob", "destinationColumn": "FOB"},
+			{"sourceColumn": "Cif", "destinationColumn": "CIF"},
+			{"sourceColumn": "Bruto", "destinationColumn": "BRUTO"},
+			{"sourceColumn": "Netto", "destinationColumn": "NETTO"},
+			{"sourceColumn": "JmCont", "destinationColumn": "JMCONT"},
+			{"sourceColumn": "JmBrg", "destinationColumn": "JMBRG"},
+			{"sourceColumn": "Status", "destinationColumn": "STATUS"},
+			{"sourceColumn": "Snrf", "destinationColumn": "SNRF"},
+			{"sourceColumn": "KdFas", "destinationColumn": "KDFAS"},
+			{"sourceColumn": "Lengkap", "destinationColumn": "LENGKAP"},
+			{"sourceColumn": "BillNpwp", "destinationColumn": "BILLNPWP"},
+			{"sourceColumn": "BillNama", "destinationColumn": "BILLNAMA"},
+			{"sourceColumn": "BillAlmt", "destinationColumn": "BILLALMT"},
+			{"sourceColumn": "PenjualNama", "destinationColumn": "PENJUALNAMA"},
+			{"sourceColumn": "PenjualAlmt", "destinationColumn": "PENJUALALMT"},
+			{"sourceColumn": "PenjualNeg", "destinationColumn": "PENJUALNEG"},
+			{"sourceColumn": "Pernyataan", "destinationColumn": "PERNYATAAN"},
+			{"sourceColumn": "JnsTrans", "destinationColumn": "JNSTRANS"},
+			{"sourceColumn": "VD", "destinationColumn": "VD"},
+			{"sourceColumn": "VersiModul", "destinationColumn": "VERSIMODUL"},
+			{"sourceColumn": "NilVd", "destinationColumn": "NILVD"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Container",
+         "active": false,
+         "source":{
+            "table":"tblPibCon",
+            "query":"select a.* from tblPibCon a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBCON"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "ContNo", "destinationColumn": "CONTNO"},
+			{"sourceColumn": "ContUkur", "destinationColumn": "CONTUKUR"},
+			{"sourceColumn": "ContTipe", "destinationColumn": "CONTIPE"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Container R",
+         "active": false,
+         "source":{
+            "table":"tblPibConR",
+            "query":"select a.* from tblPibConR a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBCONR"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+         	{"sourceColumn": "ResKd", "destinationColumn": "RESKD"},
+			{"sourceColumn": "ContNo", "destinationColumn": "CONTNO"},
+			{"sourceColumn": "ContUkur", "destinationColumn": "CONTUKUR"},
+			{"sourceColumn": "ContTipe", "destinationColumn": "CONTTIPE"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Document",
+         "active": false,
+         "source":{
+            "table":"tblPibDok",
+            "query":"select a.*, DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) as SUBMISSION_DT,   MID(a.CAR, 21,6) as  SUBMISSION_NO from tblPibDok a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBDOK"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "DokKd", "destinationColumn": "DOKKD"},
+			{"sourceColumn": "DokNo", "destinationColumn": "DOKNO"},
+			{"sourceColumn": "DokTg", "destinationColumn": "DOKTG"},
+			{"sourceColumn": "DokInst", "destinationColumn": "DOKINST"},
+			{"sourceColumn": "NoUrut", "destinationColumn": "NOURUT"},
+			{"sourceColumn": "KdGroupDok", "destinationColumn": "KDGROUPDOK"},
+			{"sourceColumn": "SUBMISSION_NO", "destinationColumn": "SUBMISSION_NO"},
+			{"sourceColumn": "SUBMISSION_DT", "destinationColumn": "SUBMISSION_DT"}
+			
+
+
+         ]
+      },
+      
+      {
+         "name":"PIB Detail",
+         "active": false,
+         "source":{
+            "table":"tblPibDtl",
+            "query":"select a.* from tblPibDtl a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBDTL"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "Serial", "destinationColumn": "SERIAL"},
+			{"sourceColumn": "NoHs", "destinationColumn": "NOHS"},
+			{"sourceColumn": "SeriTrp", "destinationColumn": "SERITRP"},
+			{"sourceColumn": "BrgUrai", "destinationColumn": "BRGURAI"},
+			{"sourceColumn": "Merk", "destinationColumn": "MERK"},
+			{"sourceColumn": "Tipe", "destinationColumn": "TIPE"},
+			{"sourceColumn": "SpfLain", "destinationColumn": "SPFLAIN"},
+			{"sourceColumn": "BrgAsal", "destinationColumn": "BRGASAL"},
+			{"sourceColumn": "DNilInv", "destinationColumn": "DNILINV"},
+			{"sourceColumn": "DCif", "destinationColumn": "DCIF"},
+			{"sourceColumn": "KdSat", "destinationColumn": "KDSAT"},
+			{"sourceColumn": "JmlSat", "destinationColumn": "JMLSAT"},
+			{"sourceColumn": "KemasJn", "destinationColumn": "KEMASJN"},
+			{"sourceColumn": "KemasJm", "destinationColumn": "KEMASJM"},
+			{"sourceColumn": "SatBmJm", "destinationColumn": "SATBMJM"},
+			{"sourceColumn": "SatCukJm", "destinationColumn": "SATCUKJM"},
+			{"sourceColumn": "NettoDtl", "destinationColumn": "NETTODTL"},
+			{"sourceColumn": "KdFasDtl", "destinationColumn": "KDFASDTL"},
+			{"sourceColumn": "DtlOk", "destinationColumn": "DTLOK"},
+			{"sourceColumn": "FlBarangBaru", "destinationColumn": "FLBARANGBARU"},
+			{"sourceColumn": "FlLartas", "destinationColumn": "FLLARTAS"},
+			{"sourceColumn": "KatLartas", "destinationColumn": "KATLARTAS"},
+			{"sourceColumn": "SpekTarif", "destinationColumn": "SPEKTARIF"},
+			{"sourceColumn": "DNilCuk", "destinationColumn": "DNILCUK"},
+			{"sourceColumn": "JmPC", "destinationColumn": "JMPC"},
+			{"sourceColumn": "SaldoAwalPC", "destinationColumn": "SALDOAWALPC"},
+			{"sourceColumn": "SaldoAkhirPC", "destinationColumn": "SALDOAKHIRPC"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Detail Document",
+         "active": false,
+         "source":{
+            "table":"tblPibDtlDok",
+            "query":"select a.* from tblPibDtlDok a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBDTLDOK"
+         },
+         "mapping":[
+         	{"sourceColumn": "Car", "destinationColumn": "CAR"},
+			{"sourceColumn": "Serial", "destinationColumn": "SERIAL"},
+			{"sourceColumn": "KdFasDtl", "destinationColumn": "KDFASDTL"},
+			{"sourceColumn": "NoUrut", "destinationColumn": "NOURUT"},
+			{"sourceColumn": "DokKd", "destinationColumn": "DOKKD"},
+			{"sourceColumn": "DokNo", "destinationColumn": "DOKNO"},
+			{"sourceColumn": "DokTg", "destinationColumn": "DOKTG"},
+			{"sourceColumn": "KdGroupDok", "destinationColumn": "KDGROUPDOK"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Detail Spek Khusus",
+         "active": false,
+         "source":{
+            "table":"tblPibDtlSpekKhusus",
+            "query":"select a.* from tblPibDtlSpekKhusus a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBDTLSPEKKHUSUS"
+         },
+         "mapping":[
+         	{"sourceColumn": "Car", "destinationColumn": "CAR"},
+			{"sourceColumn": "Serial", "destinationColumn": "SERIAL"},
+			{"sourceColumn": "KdFasDtl", "destinationColumn": "KDFASDTL"},
+			{"sourceColumn": "NoUrut", "destinationColumn": "NOURUT"},
+			{"sourceColumn": "DokKd", "destinationColumn": "DOKKD"},
+			{"sourceColumn": "DokNo", "destinationColumn": "DOKNO"},
+			{"sourceColumn": "DokTg", "destinationColumn": "DOKTG"},
+			{"sourceColumn": "KdGroupDok", "destinationColumn": "KDGROUPDOK"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Fasilitas",
+         "active": false,
+         "source":{
+            "table":"tblPibFas",
+            "query":"select a.* from tblPibFas a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBFAS"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "Serial", "destinationColumn": "SERIAL"},
+			{"sourceColumn": "KdFasBM", "destinationColumn": "KDFASBM"},
+			{"sourceColumn": "FasBM", "destinationColumn": "FASBM"},
+			{"sourceColumn": "KdFasCuk", "destinationColumn": "KDFASCUK"},
+			{"sourceColumn": "FasCuk", "destinationColumn": "FASCUK"},
+			{"sourceColumn": "KdFasPpn", "destinationColumn": "KDFASPPN"},
+			{"sourceColumn": "FasPpn", "destinationColumn": "FASPPN"},
+			{"sourceColumn": "KdFasPph", "destinationColumn": "KDFASPPH"},
+			{"sourceColumn": "FasPph", "destinationColumn": "FASPPH"},
+			{"sourceColumn": "KdFasPbm", "destinationColumn": "KDFASPBM"},
+			{"sourceColumn": "FasPbm", "destinationColumn": "FASPBM"},
+			{"sourceColumn": "KdFasBMAD", "destinationColumn": "KDFASBMAD"},
+			{"sourceColumn": "FasBMAD", "destinationColumn": "FASBMAD"},
+			{"sourceColumn": "BMADS", "destinationColumn": "BMADS"},
+			{"sourceColumn": "KdFasBMTP", "destinationColumn": "KDFASBMTP"},
+			{"sourceColumn": "FasBMTP", "destinationColumn": "FASBMTP"},
+			{"sourceColumn": "BMTPS", "destinationColumn": "BMTPS"},
+			{"sourceColumn": "KdFasBMIM", "destinationColumn": "KDFASBMIM"},
+			{"sourceColumn": "FasBMIM", "destinationColumn": "FASBMIM"},
+			{"sourceColumn": "BMIMS", "destinationColumn": "BMIMS"},
+			{"sourceColumn": "KdFasBMPB", "destinationColumn": "KDFASBMPB"},
+			{"sourceColumn": "FasBMPB", "destinationColumn": "FASBMPB"},
+			{"sourceColumn": "BMPBS", "destinationColumn": "BMPBS"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Kendaraan",
+         "active": false,
+         "source":{
+            "table":"tblPibKendaraan",
+            "query":"select a.* from tblPibKendaraan a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBKENDARAAN"
+         },
+         "mapping":[
+         	{"sourceColumn": "Car", "destinationColumn": "CAR"},
+			{"sourceColumn": "Serial", "destinationColumn": "SERIAL"},
+			{"sourceColumn": "NoRangka", "destinationColumn": "NORANGKA"},
+			{"sourceColumn": "NoMesin", "destinationColumn": "NOMESIN"},
+			{"sourceColumn": "Silinder", "destinationColumn": "SILINDER"},
+			{"sourceColumn": "Tahun", "destinationColumn": "TAHUN"}
+         ]
+      },
+      
+      {
+         "name":"PIB Kemasan",
+         "active": false,
+         "source":{
+            "table":"tblPibKms",
+            "query":"select a.* from tblPibKms a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBKMS"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "JnKemas", "destinationColumn": "JNKEMAS"},
+			{"sourceColumn": "JmKemas", "destinationColumn": "JMKEMAS"},
+			{"sourceColumn": "merkkemas", "destinationColumn": "MERKKEMAS"}
+         ]
+      },
+      
+      {
+         "name":"PIB NPT",
+         "active": false,
+         "source":{
+            "table":"tblPibNpt",
+            "query":"select a.* from tblPibNpt a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBNPT"
+         },
+         "mapping":[
+         	{"sourceColumn": "Car", "destinationColumn": "CAR"},
+			{"sourceColumn": "ResKd", "destinationColumn": "RESKD"},
+			{"sourceColumn": "RESTG", "destinationColumn": "RESTG"},
+			{"sourceColumn": "RESWK", "destinationColumn": "RESWK"},
+			{"sourceColumn": "BM_Asal", "destinationColumn": "BM_ASAL"},
+			{"sourceColumn": "CUK_Asal", "destinationColumn": "CUK_ASAL"},
+			{"sourceColumn": "PPN_Asal", "destinationColumn": "PPN_ASAL"},
+			{"sourceColumn": "PPNBM_Asal", "destinationColumn": "PPNBM_ASAL"},
+			{"sourceColumn": "PPH_Asal", "destinationColumn": "PPH_ASAL"},
+			{"sourceColumn": "BMBYR", "destinationColumn": "BMBYR"},
+			{"sourceColumn": "CUKBYR", "destinationColumn": "CUKBYR"},
+			{"sourceColumn": "PPNBYR", "destinationColumn": "PPNBYR"},
+			{"sourceColumn": "PPNBMBYR", "destinationColumn": "PPNBMBYR"},
+			{"sourceColumn": "PPHBYR", "destinationColumn": "PPHBYR"},
+			{"sourceColumn": "DENDA", "destinationColumn": "DENDA"},
+			{"sourceColumn": "BM_Kurang", "destinationColumn": "BM_KURANG"},
+			{"sourceColumn": "CUK_Kurang", "destinationColumn": "CUK_KURANG"},
+			{"sourceColumn": "PPN_Kurang", "destinationColumn": "PPN_KURANG"},
+			{"sourceColumn": "PPNBM_Kurang", "destinationColumn": "PPNBM_KURANG"},
+			{"sourceColumn": "PPH_Kurang", "destinationColumn": "PPH_KURANG"},
+			{"sourceColumn": "BM_Lebih", "destinationColumn": "BM_LEBIH"},
+			{"sourceColumn": "CUK_Lebih", "destinationColumn": "CUK_LEBIH"},
+			{"sourceColumn": "PPN_Lebih", "destinationColumn": "PPN_LEBIH"},
+			{"sourceColumn": "PPNBM_Lebih", "destinationColumn": "PPNBM_LEBIH"},
+			{"sourceColumn": "PPH_Lebih", "destinationColumn": "PPH_LEBIH"},
+			{"sourceColumn": "Total_Kurang", "destinationColumn": "TOTAL_KURANG"},
+			{"sourceColumn": "Total_Lebih", "destinationColumn": "TOTAL_LEBIH"},
+			{"sourceColumn": "S_JnsBrg", "destinationColumn": "S_JNSBRG"},
+			{"sourceColumn": "S_JmlBrg", "destinationColumn": "S_JMLBRG"},
+			{"sourceColumn": "S_Tarif", "destinationColumn": "S_TARIF"},
+			{"sourceColumn": "S_NilPab", "destinationColumn": "S_NILPAB"},
+			{"sourceColumn": "BMAD_Asal", "destinationColumn": "BMAD_ASAL"},
+			{"sourceColumn": "BMADBYR", "destinationColumn": "BMADBYR"},
+			{"sourceColumn": "BMAD_KURANG", "destinationColumn": "BMAD_KURANG"},
+			{"sourceColumn": "BMAD_Lebih", "destinationColumn": "BMAD_LEBIH"},
+			{"sourceColumn": "BMI_Asal", "destinationColumn": "BMI_ASAL"},
+			{"sourceColumn": "BMIBYR", "destinationColumn": "BMIBYR"},
+			{"sourceColumn": "BMI_KURANG", "destinationColumn": "BMI_KURANG"},
+			{"sourceColumn": "BMI_Lebih", "destinationColumn": "BMI_LEBIH"},
+			{"sourceColumn": "BMTP_Asal", "destinationColumn": "BMTP_ASAL"},
+			{"sourceColumn": "BMTPBYR", "destinationColumn": "BMTPBYR"},
+			{"sourceColumn": "BMTP_KURANG", "destinationColumn": "BMTP_KURANG"},
+			{"sourceColumn": "BMTP_Lebih", "destinationColumn": "BMTP_LEBIH"},
+			{"sourceColumn": "BMADS_Asal", "destinationColumn": "BMADS_ASAL"},
+			{"sourceColumn": "BMADSBYR", "destinationColumn": "BMADSBYR"},
+			{"sourceColumn": "BMADS_KURANG", "destinationColumn": "BMADS_KURANG"},
+			{"sourceColumn": "BMADS_Lebih", "destinationColumn": "BMADS_LEBIH"},
+			{"sourceColumn": "BMIS_Asal", "destinationColumn": "BMIS_ASAL"},
+			{"sourceColumn": "BMISBYR", "destinationColumn": "BMISBYR"},
+			{"sourceColumn": "BMIS_KURANG", "destinationColumn": "BMIS_KURANG"},
+			{"sourceColumn": "BMIS_Lebih", "destinationColumn": "BMIS_LEBIH"},
+			{"sourceColumn": "BMTPS_Asal", "destinationColumn": "BMTPS_ASAL"},
+			{"sourceColumn": "BMTPSBYR", "destinationColumn": "BMTPSBYR"},
+			{"sourceColumn": "BMTPS_KURANG", "destinationColumn": "BMTPS_KURANG"},
+			{"sourceColumn": "BMTPS_Lebih", "destinationColumn": "BMTPS_LEBIH"},
+			{"sourceColumn": "BMKT_Asal", "destinationColumn": "BMKT_ASAL"},
+			{"sourceColumn": "BMKT", "destinationColumn": "BMKT"},
+			{"sourceColumn": "BMKT_KURANG", "destinationColumn": "BMKT_KURANG"},
+			{"sourceColumn": "BMKT_Lebih", "destinationColumn": "BMKT_LEBIH"}
+
+         ]
+      },
+      
+       {
+         "name":"PIB NTB",
+         "active": false,
+         "source":{
+            "table":"tblPibNTB",
+            "query":"select a.* from tblPibNTB a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBNTB"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "NTB", "destinationColumn": "NTB"},
+			{"sourceColumn": "NTPN", "destinationColumn": "NTPN"}
+         ]
+      },
+      
+      {
+         "name":"PIB PGT",
+         "active": false,
+         "source":{
+            "table":"tblPibPgt",
+            "query":"select a.* from tblPibPgt a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBPGT"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "KdBeban", "destinationColumn": "KDBEBAN"},
+			{"sourceColumn": "KdFasil", "destinationColumn": "KDFASIL"},
+			{"sourceColumn": "NilBeban", "destinationColumn": "NILBEBAN"},
+			{"sourceColumn": "Npwp", "destinationColumn": "NPWP"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Respon",
+         "active": false,
+         "source":{
+            "table":"tblPibRes",
+            "query":"select a.* from tblPibRes a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBRES"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "RESKD", "destinationColumn": "RESKD"},
+			{"sourceColumn": "RESTG", "destinationColumn": "RESTG"},
+			{"sourceColumn": "RESWK", "destinationColumn": "RESWK"},
+			{"sourceColumn": "DOKRESNO", "destinationColumn": "DOKRESNO"},
+			{"sourceColumn": "DOKRESTG", "destinationColumn": "DOKRESTG"},
+			{"sourceColumn": "KPBC", "destinationColumn": "KPBC"},
+			{"sourceColumn": "PIBNO", "destinationColumn": "PIBNO"},
+			{"sourceColumn": "PIBTG", "destinationColumn": "PIBTG"},
+			{"sourceColumn": "KDGUDANG", "destinationColumn": "KDGUDANG"},
+			{"sourceColumn": "PEJABAT1", "destinationColumn": "PEJABAT1"},
+			{"sourceColumn": "Nip1", "destinationColumn": "NIP1"},
+			{"sourceColumn": "JABATAN1", "destinationColumn": "JABATAN1"},
+			{"sourceColumn": "PEJABAT2", "destinationColumn": "PEJABAT2"},
+			{"sourceColumn": "Nip2", "destinationColumn": "NIP2"},
+			{"sourceColumn": "JATUHTEMPO", "destinationColumn": "JATUHTEMPO"},
+			{"sourceColumn": "KOMTG", "destinationColumn": "KOMTG"},
+			{"sourceColumn": "KOMWK", "destinationColumn": "KOMWK"},
+			{"sourceColumn": "DesKripsi", "destinationColumn": "DESKRIPSI"},
+			{"sourceColumn": "dibaca", "destinationColumn": "DIBACA"},
+			{"sourceColumn": "JmKemas", "destinationColumn": "JMKEMAS"},
+			{"sourceColumn": "NoKemas", "destinationColumn": "NOKEMAS"},
+			{"sourceColumn": "NPWPImp", "destinationColumn": "NPWPIMP"},
+			{"sourceColumn": "NamaImp", "destinationColumn": "NAMAIMP"},
+			{"sourceColumn": "AlamatImp", "destinationColumn": "ALAMATIMP"},
+			{"sourceColumn": "IDPPJK", "destinationColumn": "IDPPJK"},
+			{"sourceColumn": "NamaPPJK", "destinationColumn": "NAMAPPJK"},
+			{"sourceColumn": "AlamatPPJK", "destinationColumn": "ALAMATPPJK"},
+			{"sourceColumn": "KodeBill", "destinationColumn": "KODEBILL"},
+			{"sourceColumn": "TanggalBill", "destinationColumn": "TANGGALBILL"},
+			{"sourceColumn": "TanggalJtTempo", "destinationColumn": "TANGGALJTTEMPO"},
+			{"sourceColumn": "TanggalAju", "destinationColumn": "TANGGALAJU"},
+			{"sourceColumn": "TotalBayar", "destinationColumn": "TOTALBAYAR"},
+			{"sourceColumn": "Terbilang", "destinationColumn": "TERBILANG"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB Tarif",
+         "active": false,
+         "source":{
+            "table":"tblPibTrf",
+            "query":"select a.* from tblPibTrf a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBTRF"
+         },
+         "mapping":[
+         	{"sourceColumn": "CAR", "destinationColumn": "CAR"},
+			{"sourceColumn": "NoHs", "destinationColumn": "NOHS"},
+			{"sourceColumn": "SeriTrp", "destinationColumn": "SERITRP"},
+			{"sourceColumn": "KdTrpBm", "destinationColumn": "KDTRPBM"},
+			{"sourceColumn": "KdSatBm", "destinationColumn": "KDSATBM"},
+			{"sourceColumn": "TrpBm", "destinationColumn": "TRPBM"},
+			{"sourceColumn": "KdCuk", "destinationColumn": "KDCUK"},
+			{"sourceColumn": "KdTrpCuk", "destinationColumn": "KDTRPCUK"},
+			{"sourceColumn": "KdSatCuk", "destinationColumn": "KDSATCUK"},
+			{"sourceColumn": "TrpCuk", "destinationColumn": "TRPCUK"},
+			{"sourceColumn": "TrpPpn", "destinationColumn": "TRPPPN"},
+			{"sourceColumn": "TrpPbm", "destinationColumn": "TRPPBM"},
+			{"sourceColumn": "TrpPph", "destinationColumn": "TRPPPH"},
+			{"sourceColumn": "KdTrpBmAD", "destinationColumn": "KDTRPBMAD"},
+			{"sourceColumn": "TrpBmAD", "destinationColumn": "TRPBMAD"},
+			{"sourceColumn": "KdTrpBmTP", "destinationColumn": "KDTRPBMTP"},
+			{"sourceColumn": "TrpBmTP", "destinationColumn": "TRPBMTP"},
+			{"sourceColumn": "KdTrpBmIM", "destinationColumn": "KDTRPBMIM"},
+			{"sourceColumn": "TrpBmIM", "destinationColumn": "TRPBMIM"},
+			{"sourceColumn": "KdTrpBmPB", "destinationColumn": "KDTRPBMPB"},
+			{"sourceColumn": "TrpBmPB", "destinationColumn": "TRPBMPB"},
+			{"sourceColumn": "KDCUKSUB", "destinationColumn": "KDCUKSUB"},
+			{"sourceColumn": "HJECuk", "destinationColumn": "HJECUK"},
+			{"sourceColumn": "KdKmsCuk", "destinationColumn": "KDKMSCUK"},
+			{"sourceColumn": "IsiPerKmsCuk", "destinationColumn": "ISIPERKMSCUK"}
+         ]
+      },
+      
+      {
+         "name":"PIB RES BILL",
+         "active": false,
+         "source":{
+            "table":"TblPIBResBill",
+            "query":"select a.* from TblPIBResBill a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBRESBILL"
+         },
+         "mapping":[
+         	{"sourceColumn": "Car", "destinationColumn": "CAR"},
+			{"sourceColumn": "ResTg", "destinationColumn": "RESTG"},
+			{"sourceColumn": "ResWk", "destinationColumn": "RESWK"},
+			{"sourceColumn": "Akun", "destinationColumn": "AKUN"},
+			{"sourceColumn": "NPWP", "destinationColumn": "NPWP"},
+			{"sourceColumn": "Nilai", "destinationColumn": "NILAI"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB RES NPBL",
+         "active": false,
+         "source":{
+            "table":"TblPIBResNPBL",
+            "query":"select a.* from tblPIBResNPBL a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBRESNPBL"
+         },
+         "mapping":[
+         	{"sourceColumn": "Car", "destinationColumn": "CAR"},
+			{"sourceColumn": "ResKd", "destinationColumn": "RESKD"},
+			{"sourceColumn": "ResTg", "destinationColumn": "RESTG"},
+			{"sourceColumn": "ResWk", "destinationColumn": "RESWK"},
+			{"sourceColumn": "Serial", "destinationColumn": "SERIAL"},
+			{"sourceColumn": "BrgUrai", "destinationColumn": "BRGURAI"},
+			{"sourceColumn": "Ketentuan", "destinationColumn": "KETENTUAN"},
+			{"sourceColumn": "pemberitahuan", "destinationColumn": "PEMBERITAHUAN"},
+			{"sourceColumn": "Penetapan", "destinationColumn": "PENETAPAN"}
+         ]
+      },
+      
+      {
+         "name":"PIB RES NPD",
+         "active": false,
+         "source":{
+            "table":"TblPIBResNPD",
+            "query":"select a.* from TblPIBResNPD a, tblPibRes b where a.CAR = b.CAR and b.RESKD=300 and DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date()"
+         },
+         "destination":{
+            "table":"TB_T_RES_PIBRESNPD"
+         },
+         "mapping":[
+         	{"sourceColumn": "Car", "destinationColumn": "CAR"},
+			{"sourceColumn": "ResTg", "destinationColumn": "RESTG"},
+			{"sourceColumn": "ResWk", "destinationColumn": "RESWK"},
+			{"sourceColumn": "Seri", "destinationColumn": "SERI"},
+			{"sourceColumn": "UrDok", "destinationColumn": "URDOK"},
+			{"sourceColumn": "Nilai", "destinationColumn": "NILAI"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB RES IMPORT Decl H",
+         "active": false,
+         "processId": false,
+         "source":{
+            "table":"TblPIBResNPD",
+            "query":"select * from (select    a.CAR as SUBMISSION_CAR,   DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) as SUBMISSION_DT,   MID(a.CAR, 21,6) as  SUBMISSION_NO,   a.KDKPBC as CUSTOMS_OFFICE_CD,   a.PIBNO as IMPORT_DECL_NO,   a.PIBTG as IMPORT_DECL_DT,   TRIM(c.DOKNO) as BL_NO,   c.DOKTG as BL_DT,   a.DOKTUPKD as BC_1.1_CD,   a.DOKTUPNO as BC_1.1_NO,   a.DOKTUPTG as BC_1.1_DT,   a.POSNO as BC_1.1_POS,   a.POSSUB as BC_1.1_POSSUB,   a.POSSUBSUB as BC_1.1_POSSUBSUB,   a.PASOKNAMA as SUPPLIER_NAME,   a.PASOKALMT as SUPPLIER_ADDR,   a.PASOKNEG as SUPPLIER_COUNTRY,   a.PELBKR as PORT_UNLOADING_CD,   e.UREDI as PORT_UNLOADING_DESC,   a.PELMUAT as PORT_LOADING_CD,   f.UREDI as PORT_LOADING_DESC,   a.ANGKUTNAMA as VESSEL_NAME,   a.ANGKUTNO as VOYAGE_NO,   a.ANGKUTFL as VOYAGE_FLAG,   a.TGTIBA as ETA,   a.KDVAL as CUR_CD,   g.UREDI as CUR_DESC,   a.NDPBM as CUR_AMOUNT,   a.NILINV as TTL_AMOUNT,   a.FREIGHT as TTL_FREIGHT,   a.ASURANSI as TTL_INSURANCE,   a.CIF as TTL_CIF,   a.JMCONT as TTL_CASE,   a.JMBRG as TTL_QTY,   a.KDFAS as DUTY_FACILITY ,  b.RESKD as RES_CD,   b.DOKRESNO as RES_DOC_NO,   b.DOKRESTG as RES_DOC_DT,  (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 1 AND KDFASIL = 0) as ID_TAX_NON_EXEMP_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 1 AND KDFASIL = 1) as ID_TAX_SUSPENDED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 1 AND KDFASIL = 2) as ID_TAX_RELEASED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 1 AND KDFASIL = 3) as ID_TAX_PERIODICAL_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 1 AND KDFASIL = 4) as ID_TAX_GOV_BORNED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 2 AND KDFASIL = 0) as VA_TAX_NON_EXEMP_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 2 AND KDFASIL = 1) as VA_TAX_SUSPENDED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 2 AND KDFASIL = 2) as VA_TAX_RELEASED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 2 AND KDFASIL = 3) as VA_TAX_PERIODICAL_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 2 AND KDFASIL = 4) as VA_TAX_GOV_BORNED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 3 AND KDFASIL = 0) as LUX_TAX_NON_EXEMP_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 3 AND KDFASIL = 1) as LUX_TAX_SUSPENDED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 3 AND KDFASIL = 2) as LUX_TAX_RELEASED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 3 AND KDFASIL = 3) as LUX_TAX_PERIODICAL_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 3 AND KDFASIL = 4) as LUX_TAX_GOV_BORNED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 4 AND KDFASIL = 0) as INC_TAX_NON_EXEMP_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 4 AND KDFASIL = 1) as INC_TAX_SUSPENDED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 4 AND KDFASIL = 2) as INC_TAX_RELEASED_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 4 AND KDFASIL = 3) as INC_TAX_PERIODICAL_SUM,   (select d.NILBEBAN FROM tblPibPgt d where  d.CAR = a.CAR and KDBEBAN = 4 AND KDFASIL = 4) as INC_TAX_GOV_BORNED_SUM     from tblPibHdr a     inner join tblPibRes b on a.CAR = b.CAR    inner join tblPibDok c on a.CAR = c.CAR    inner join tblPelDN e on a.PELBKR = e.KDEDI    inner join tblPelLN f on a.PELMUAT = f.KDEDI    inner join tblValuta g on a.KDVAL = g.KDEDI        WHERE DateSerial(val(MID(a.CAR,13,4)), val(MID(a.CAR,17,2)), val(MID(a.CAR,19,2))) BETWEEN Date()-200 AND Date() AND LEN(a.PIBNO+'') <> 0 and b.RESKD = 300 and c.DOKKD='705') x"
+         },
+         "destination":{
+            "table":"TB_T_RES_IMPORT_DECL_H"
+         },
+         "mapping":[
+         	{"sourceColumn": "SUBMISSION_CAR", "destinationColumn": "SUBMISSION_CAR"},
+			{"sourceColumn": "SUBMISSION_DT", "destinationColumn": "SUBMISSION_DT"},
+			{"sourceColumn": "SUBMISSION_NO", "destinationColumn": "SUBMISSION_NO"},
+			{"sourceColumn": "CUSTOMS_OFFICE_CD", "destinationColumn": "CUSTOMS_OFFICE_CD"},
+			{"sourceColumn": "IMPORT_DECL_NO", "destinationColumn": "IMPORT_DECL_NO"},
+			{"sourceColumn": "IMPORT_DECL_DT", "destinationColumn": "IMPORT_DECL_DT"},
+			{"sourceColumn": "BL_NO", "destinationColumn": "BL_NO"},
+			{"sourceColumn": "BL_DT", "destinationColumn": "BL_DT"},
+			{"sourceColumn": "Z_1_CD", "destinationColumn": "BC_1_1_CD"},
+			{"sourceColumn": "Z_1_NO", "destinationColumn": "BC_1_1_NO"},
+			{"sourceColumn": "Z_1_DT", "destinationColumn": "BC_1_1_DT"},
+			{"sourceColumn": "Z_1_POS", "destinationColumn": "BC_1_1_POS"},
+			{"sourceColumn": "Z_1_POSSUB", "destinationColumn": "BC_1_1_POSSUB"},
+			{"sourceColumn": "Z_1_POSSUBSUB", "destinationColumn": "BC_1_1_POSSUBSUB"},
+			{"sourceColumn": "SUPPLIER_NAME", "destinationColumn": "SUPPLIER_NAME"},
+			{"sourceColumn": "SUPPLIER_ADDR", "destinationColumn": "SUPPLIER_ADDR"},
+			{"sourceColumn": "SUPPLIER_COUNTRY", "destinationColumn": "SUPPLIER_COUNTRY"},
+			{"sourceColumn": "PORT_UNLOADING_CD", "destinationColumn": "PORT_UNLOADING_CD"},
+			{"sourceColumn": "PORT_UNLOADING_DESC", "destinationColumn": "PORT_UNLOADING_DESC"},
+			{"sourceColumn": "PORT_LOADING_CD", "destinationColumn": "PORT_LOADING_CD"},
+			{"sourceColumn": "PORT_LOADING_DESC", "destinationColumn": "PORT_LOADING_DESC"},
+			{"sourceColumn": "VESSEL_NAME", "destinationColumn": "VESSEL_NAME"},
+			{"sourceColumn": "VOYAGE_NO", "destinationColumn": "VOYAGE_NO"},
+			{"sourceColumn": "VOYAGE_FLAG", "destinationColumn": "VOYAGE_FLAG"},
+			{"sourceColumn": "ETA", "destinationColumn": "ETA"},
+			{"sourceColumn": "CUR_CD", "destinationColumn": "CUR_CD"},
+			{"sourceColumn": "CUR_DESC", "destinationColumn": "CUR_DESC"},
+			{"sourceColumn": "CUR_AMOUNT", "destinationColumn": "CUR_AMOUNT"},
+			{"sourceColumn": "TTL_AMOUNT", "destinationColumn": "TTL_AMOUNT"},
+			{"sourceColumn": "TTL_FREIGHT", "destinationColumn": "TTL_FREIGHT"},
+			{"sourceColumn": "TTL_INSURANCE", "destinationColumn": "TTL_INSURANCE"},
+			{"sourceColumn": "TTL_CIF", "destinationColumn": "TTL_CIF"},
+			{"sourceColumn": "TTL_CASE", "destinationColumn": "TTL_CASE"},
+			{"sourceColumn": "TTL_QTY", "destinationColumn": "TTL_QTY"},
+			{"sourceColumn": "DUTY_FACILITY", "destinationColumn": "DUTY_FACILITY"},
+			{"sourceColumn": "RES_CD", "destinationColumn": "RES_CD"},
+			{"sourceColumn": "RES_DOC_NO", "destinationColumn": "RES_DOC_NO"},
+			{"sourceColumn": "RES_DOC_DT", "destinationColumn": "RES_DOC_DT"},
+			{"sourceColumn": "ID_TAX_NON_EXEMP_SUM", "destinationColumn": "ID_TAX_NON_EXEMP_SUM"},
+			{"sourceColumn": "ID_TAX_SUSPENDED_SUM", "destinationColumn": "ID_TAX_SUSPENDED_SUM"},
+			{"sourceColumn": "ID_TAX_RELEASED_SUM", "destinationColumn": "ID_TAX_RELEASED_SUM"},
+			{"sourceColumn": "ID_TAX_PERIODICAL_SUM", "destinationColumn": "ID_TAX_PERIODICAL_SUM"},
+			{"sourceColumn": "ID_TAX_GOV_BORNED_SUM", "destinationColumn": "ID_TAX_GOV_BORNED_SUM"},
+			{"sourceColumn": "VA_TAX_NON_EXEMP_SUM", "destinationColumn": "VA_TAX_NON_EXEMP_SUM"},
+			{"sourceColumn": "VA_TAX_SUSPENDED_SUM", "destinationColumn": "VA_TAX_SUSPENDED_SUM"},
+			{"sourceColumn": "VA_TAX_RELEASED_SUM", "destinationColumn": "VA_TAX_RELEASED_SUM"},
+			{"sourceColumn": "VA_TAX_PERIODICAL_SUM", "destinationColumn": "VA_TAX_PERIODICAL_SUM"},
+			{"sourceColumn": "VA_TAX_GOV_BORNED_SUM", "destinationColumn": "VA_TAX_GOV_BORNED_SUM"},
+			{"sourceColumn": "LUX_TAX_NON_EXEMP_SUM", "destinationColumn": "LUX_TAX_NON_EXEMP_SUM"},
+			{"sourceColumn": "LUX_TAX_SUSPENDED_SUM", "destinationColumn": "LUX_TAX_SUSPENDED_SUM"},
+			{"sourceColumn": "LUX_TAX_RELEASED_SUM", "destinationColumn": "LUX_TAX_RELEASED_SUM"},
+			{"sourceColumn": "LUX_TAX_PERIODICAL_SUM", "destinationColumn": "LUX_TAX_PERIODICAL_SUM"},
+			{"sourceColumn": "LUX_TAX_GOV_BORNED_SUM", "destinationColumn": "LUX_TAX_GOV_BORNED_SUM"},
+			{"sourceColumn": "INC_TAX_NON_EXEMP_SUM", "destinationColumn": "INC_TAX_NON_EXEMP_SUM"},
+			{"sourceColumn": "INC_TAX_SUSPENDED_SUM", "destinationColumn": "INC_TAX_SUSPENDED_SUM"},
+			{"sourceColumn": "INC_TAX_RELEASED_SUM", "destinationColumn": "INC_TAX_RELEASED_SUM"},
+			{"sourceColumn": "INC_TAX_PERIODICAL_SUM", "destinationColumn": "INC_TAX_PERIODICAL_SUM"},
+			{"sourceColumn": "INC_TAX_GOV_BORNED_SUM", "destinationColumn": "INC_TAX_GOV_BORNED_SUM"}
+
+         ]
+      },
+      
+      {
+         "name":"PIB RES IMPORT Decl D",
+         "active": true,
+         "processId": false,
+         "source":{
+            "table":"TblPIBResNPD",
+            "query":"select * from (select  a.CAR as SUBMISSION_CAR, DateSerial(val(MID(a.CAR, 13, 4)), val(MID(a.CAR, 17, 2)), val(MID(a.CAR, 19, 2))) as SUBMISSION_DT, MID(a.CAR, 21, 6) as SUBMISSION_NO, a.SERIAL, a.NOHS as HS_NO, a.SERITRP as TARIFF_SERIAL, a.BRGURAI as DESC_OF_GOODS, a.MERK, a.TIPE, a.BRGASAL as COUNTRY_CD, (SELECT UREDI FROM tblNegara x where x.KdEdi = a.BRGASAL) as COUNTRY_NAME, a.DNILINV as PART_FOB, a.DCIF as PART_CIF, a.KDSAT as MEASUREMENT_CD, (SELECT UREDI FROM tblSatuan x where x.KdEdi = a.KDSAT) as MEASUREMENT_DESC, a.JMLSAT as PART_QTY, (select x.TRPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '0') as ID_TAX_NON_EXEMP_TARIFF, (select x.TRPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and  y.KDFASBM = '1') as ID_TAX_SUSPENDED_TARIFF, (select x.TRPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '2') as ID_TAX_RELEASED_TARIFF, (select x.TRPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and  y.KDFASBM = '3') as ID_TAX_PERIODICAL_TARIFF, (select x.TRPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and  y.KDFASBM = '4') as ID_TAX_GOV_BORNED_TARIFF, (select SUM(x.TRPBM)* z.ndpbm * a.DCIF * y.FASBM / 100 from tblPibTrf x, tblPibFas y, tblPibHdr z where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and a.CAR = z.CAR group by z.ndpbm , a.DCIF,y.FASBM) as ID_TAX_AMT, (select x.FASBM from tblPIbFas x where x.CAR = a.CAR and x.SERIAL= a.SERIAL) as ID_TAX_AD_VALOREM,  (select x.TRPPPN from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '0') as VA_TAX_NON_EXEMP_TARIFF, (select x.TRPPPN from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '1') as VA_TAX_SUSPENDED_TARIFF, (select x.TRPPPN from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '2') as VA_TAX_RELEASED_TARIFF, (select x.TRPPPN from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '3') as VA_TAX_PERIODICAL_TARIFF, (select x.TRPPPN from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '4') as VA_TAX_GOV_BORNED_TARIFF, (select SUM(x.TRPPPN)* z.ndpbm * a.DCIF * y.FASPPN / 100 from tblPibTrf x, tblPibFas y, tblPibHdr z where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and a.CAR = z.CAR group by z.ndpbm , a.DCIF,y.FASPPN) as VA_TAX_AMT, (select x.FASPPN from tblPIbFas x where x.CAR = a.CAR and x.SERIAL= a.SERIAL) as VA_TAX_AD_VALOREM,  (select x.TRPPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '0') as LUX_TAX_NON_EXEMP_TARIFF, (select x.TRPPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '1') as LUX_TAX_SUSPENDED_TARIFF, (select x.TRPPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '2') as LUX_TAX_RELEASED_TARIFF, (select x.TRPPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '3') as LUX_TAX_PERIODICAL_TARIFF, (select x.TRPPBM from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '4') as LUX_TAX_GOV_BORNED_TARIFF, (select SUM(x.TRPPBM)* z.ndpbm * a.DCIF * y.FASPBM / 100 from tblPibTrf x, tblPibFas y, tblPibHdr z where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and a.CAR = z.CAR group by z.ndpbm , a.DCIF,y.FASPBM) as LUX_TAX_AMT, (select x.FASPBM from tblPIbFas x where x.CAR = a.CAR and x.SERIAL= a.SERIAL) as LUX_TAX_AD_VALOREM,  (select x.TRPPPH from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '0') as INC_TAX_NON_EXEMP_TARIFF, (select x.TRPPPH from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '1') as INC_TAX_SUSPENDED_TARIFF, (select x.TRPPPH from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '2') as INC_TAX_RELEASED_TARIFF, (select x.TRPPPH from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '3') as INC_TAX_PERIODICAL_TARIFF, (select x.TRPPPH from tblPibTrf x, tblPibFas y where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and y.KDFASBM = '4') as INC_TAX_GOV_BORNED_TARIFF, (select SUM(x.TRPPPH)* z.ndpbm * a.DCIF * y.FASPPH / 100 from tblPibTrf x, tblPibFas y, tblPibHdr z where x.CAR = a.CAR and  x.NOHS = a.NOHS and x.SERITRP = a.SERITRP and y.CAR = a.CAR and y.SERIAL = a.SERIAL and a.CAR = z.CAR group by z.ndpbm , a.DCIF,y.FASPPH) as INC_TAX_AMT, (select x.FASPPH from tblPIbFas x where x.CAR = a.CAR and x.SERIAL= a.SERIAL) as INC_TAX_AD_VALOREM    from tblPibDtl a    inner join tblPibRes b on a.CAR = b.CAR    WHERE DateSerial(val(MID(a.CAR, 13, 4)),val(MID(a.CAR, 17, 2)), val(MID(a.CAR, 19, 2))) BETWEEN Date()-50 AND Date() and b.RESKD = '300') x          "
+         },
+         "destination":{
+            "table":"TB_T_RES_IMPORT_DECL_D"
+         },
+         "mapping":[
+         	{"sourceColumn": "SUBMISSION_CAR", "destinationColumn": "SUBMISSION_CAR"},
+			{"sourceColumn": "SUBMISSION_NO", "destinationColumn": "SUBMISSION_NO"},
+			{"sourceColumn": "SUBMISSION_DT", "destinationColumn": "SUBMISSION_DT"},
+			{"sourceColumn": "SERIAL", "destinationColumn": "SERIAL"},
+			{"sourceColumn": "HS_NO", "destinationColumn": "HS_NO"},
+			{"sourceColumn": "TARIFF_SERIAL", "destinationColumn": "TARIFF_SERIAL"},
+			{"sourceColumn": "DESC_OF_GOODS", "destinationColumn": "DESC_OF_GOODS"},
+			{"sourceColumn": "MERK", "destinationColumn": "MERK"},
+			{"sourceColumn": "TIPE", "destinationColumn": "TIPE"},
+			{"sourceColumn": "COUNTRY_CD", "destinationColumn": "COUNTRY_CD"},
+			{"sourceColumn": "COUNTRY_NAME", "destinationColumn": "COUNTRY_NAME"},
+			{"sourceColumn": "PART_FOB", "destinationColumn": "PART_FOB"},
+			{"sourceColumn": "PART_CIF", "destinationColumn": "PART_CIF"},
+			{"sourceColumn": "MEASUREMENT_CD", "destinationColumn": "MEASUREMENT_CD"},
+			{"sourceColumn": "MEASUREMENT_DESC", "destinationColumn": "MEASUREMENT_DESC"},
+			{"sourceColumn": "PART_QTY", "destinationColumn": "PART_QTY"},
+			{"sourceColumn": "ID_TAX_NON_EXEMP_TARIFF", "destinationColumn": "ID_TAX_NON_EXEMP_TARIFF"},
+			{"sourceColumn": "ID_TAX_SUSPENDED_TARIFF", "destinationColumn": "ID_TAX_SUSPENDED_TARIFF"},
+			{"sourceColumn": "ID_TAX_RELEASED_TARIFF", "destinationColumn": "ID_TAX_RELEASED_TARIFF"},
+			{"sourceColumn": "ID_TAX_PERIODICAL_TARIFF", "destinationColumn": "ID_TAX_PERIODICAL_TARIFF"},
+			{"sourceColumn": "ID_TAX_GOV_BORNED_TARIFF", "destinationColumn": "ID_TAX_GOV_BORNED_TARIFF"},
+			{"sourceColumn": "ID_TAX_AMT", "destinationColumn": "ID_TAX_AMT"},
+			{"sourceColumn": "ID_TAX_AD_VALOREM", "destinationColumn": "ID_TAX_AD_VALOREM"},
+			{"sourceColumn": "VA_TAX_NON_EXEMP_TARIFF", "destinationColumn": "VA_TAX_NON_EXEMP_TARIFF"},
+			{"sourceColumn": "VA_TAX_SUSPENDED_TARIFF", "destinationColumn": "VA_TAX_SUSPENDED_TARIFF"},
+			{"sourceColumn": "VA_TAX_RELEASED_TARIFF", "destinationColumn": "VA_TAX_RELEASED_TARIFF"},
+			{"sourceColumn": "VA_TAX_PERIODICAL_TARIFF", "destinationColumn": "VA_TAX_PERIODICAL_TARIFF"},
+			{"sourceColumn": "VA_TAX_GOV_BORNED_TARIFF", "destinationColumn": "VA_TAX_GOV_BORNED_TARIFF"},
+			{"sourceColumn": "VA_TAX_AMT", "destinationColumn": "VA_TAX_AMT"},
+			{"sourceColumn": "VA_TAX_AD_VALOREM", "destinationColumn": "VA_TAX_AD_VALOREM"},
+			{"sourceColumn": "LUX_TAX_NON_EXEMP_TARIFF", "destinationColumn": "LUX_TAX_NON_EXEMP_TARIFF"},
+			{"sourceColumn": "LUX_TAX_SUSPENDED_TARIFF", "destinationColumn": "LUX_TAX_SUSPENDED_TARIFF"},
+			{"sourceColumn": "LUX_TAX_RELEASED_TARIFF", "destinationColumn": "LUX_TAX_RELEASED_TARIFF"},
+			{"sourceColumn": "LUX_TAX_PERIODICAL_TARIFF", "destinationColumn": "LUX_TAX_PERIODICAL_TARIFF"},
+			{"sourceColumn": "LUX_TAX_GOV_BORNED_TARIFF", "destinationColumn": "LUX_TAX_GOV_BORNED_TARIFF"},
+			{"sourceColumn": "LUX_TAX_AMT", "destinationColumn": "LUX_TAX_AMT"},
+			{"sourceColumn": "LUX_TAX_AD_VALOREM", "destinationColumn": "LUX_TAX_AD_VALOREM"},
+			{"sourceColumn": "INC_TAX_NON_EXEMP_TARIFF", "destinationColumn": "INC_TAX_NON_EXEMP_TARIFF"},
+			{"sourceColumn": "INC_TAX_SUSPENDED_TARIFF", "destinationColumn": "INC_TAX_SUSPENDED_TARIFF"},
+			{"sourceColumn": "INC_TAX_RELEASED_TARIFF", "destinationColumn": "INC_TAX_RELEASED_TARIFF"},
+			{"sourceColumn": "INC_TAX_PERIODICAL_TARIFF", "destinationColumn": "INC_TAX_PERIODICAL_TARIFF"},
+			{"sourceColumn": "INC_TAX_GOV_BORNED_TARIFF", "destinationColumn": "INC_TAX_GOV_BORNED_TARIFF"},
+			{"sourceColumn": "INC_TAX_AMT", "destinationColumn": "INC_TAX_AMT"},
+			{"sourceColumn": "INC_TAX_AD_VALOREM", "destinationColumn": "INC_TAX_AD_VALOREM"}
+
+
+         ]
+      }
+      
+   ]
+}

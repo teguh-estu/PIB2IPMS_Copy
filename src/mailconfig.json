@@ -1,0 +1,17 @@
+{
+	"serverHost": "localhost",
+   "serverIp": "localhost",
+   "serverPort": "",
+   "serverUser": "",
+   "serverPassword": "",
+   "sender": "ipms.admin",
+   "attachmentTemplate": "",
+   "attachmentFolder": "/home/TMMIN/IP/shared/TMMIN/data/download",
+   "subject": "BC 28 Respon",
+   "from": "noreply@toyota.co.id",
+   "to": "fid.teguh@toyota.co.id",
+   "cc": "",
+   "bcc": "",
+   "header": "Dear PIC, &lt;br&gt;Terlampir data respon BC 28: &lt;br&gt;&lt;br&gt;",
+   "footer": "&lt;br&gt;&lt;br&gt;Terima kasih, &lt;br&gt; Admin"
+}
